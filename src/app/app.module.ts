@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
@@ -37,7 +38,17 @@ import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, DishdetailComponent, HeaderComponent, FooterComponent, AboutComponent, HomeComponent, ContactComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    MenuComponent,
+    DishdetailComponent,
+    HeaderComponent,
+    FooterComponent,
+    AboutComponent,
+    HomeComponent,
+    ContactComponent,
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -52,15 +63,14 @@ import { LoginComponent } from './login/login.component';
     MatDialogModule,
     MatButtonModule,
     FlexLayoutModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
     MatSlideToggleModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
   ],
-  entryComponents: [
-    LoginComponent
-  ],
-  providers: [DishService,PromotionService,LeaderService],
+  entryComponents: [LoginComponent],
+  providers: [DishService, PromotionService, LeaderService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
