@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, Inject } from "@angular/core";
 import { Dish } from '../shared/dish';
 import { Comment} from "../shared/comment";
 import { DishService } from "../services/dish.service";
@@ -42,7 +42,8 @@ export class DishdetailComponent implements OnInit {
     private dishservice: DishService,
     private route: ActivatedRoute,
     private location: Location,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    @Inject("BaseURL") private BaseURL
   ) {
     this.createForm();
   }
@@ -73,7 +74,7 @@ export class DishdetailComponent implements OnInit {
     this.commentForm = this.fb.group({
       author: ["", [Validators.required, Validators.minLength(2)]],
       comment: ["", [Validators.required, Validators.minLength(2)]],
-      rating:["5"],
+      rating: ["5"],
     });
     this.commentForm.valueChanges.subscribe((data) =>
       this.onValueChanged(data)
@@ -87,13 +88,13 @@ export class DishdetailComponent implements OnInit {
     this.commentForm.reset({
       author: "",
       comment: "",
-      rating:"5"
+      rating: "5",
     });
     this.comment.date = new Date().toISOString();
     this.dish.comments.push(this.comment);
     console.log(this.dish.comments);
 
-     this.commentFormDirective.resetForm();
+    this.commentFormDirective.resetForm();
   }
   onValueChanged(data?: any) {
     if (!this.commentForm) {
