@@ -37,6 +37,7 @@ export class DishdetailComponent implements OnInit {
   dishIds: string[];
   prev: string;
   next: string;
+  errMess : string;
 
   constructor(
     private dishservice: DishService,
@@ -50,7 +51,7 @@ export class DishdetailComponent implements OnInit {
   ngOnInit() {
     this.dishservice
       .getDishIds()
-      .subscribe((dishIds) => (this.dishIds = dishIds));
+      .subscribe((dishIds) => (this.dishIds = dishIds),errMess => this.errMess=errMess);
     this.route.params
       .pipe(
         switchMap((params: Params) => this.dishservice.getDish(params["id"]))
