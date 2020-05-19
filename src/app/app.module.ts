@@ -39,6 +39,7 @@ import { ProcessHTTPMsgService } from "./services/process-httpmsg.service";
 import 'hammerjs';
 import { baseURL } from "./shared/baseurl";
 import { LoginComponent } from './login/login.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 
@@ -53,6 +54,7 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     ContactComponent,
     LoginComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
