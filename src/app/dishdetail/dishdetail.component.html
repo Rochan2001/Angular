@@ -1,5 +1,5 @@
 <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
-    <div *ngIf="dish" fxFlex="40" [@visibility]="visibility">
+    <div *ngIf="dish" fxFlex="40" [@visibility]="visibility" [@expand]>
         <mat-card>
             <mat-card-header>
                 <mat-card-title>
@@ -21,7 +21,7 @@
             </mat-card-actions>
         </mat-card>
     </div>
-    <div fxFlex="40" *ngIf="dish" [@visibility]="visibility">
+    <div fxFlex="40" *ngIf="dish" [@visibility]="visibility" [@expand]>
         <mat-list>
             <h1 matLine>Comments</h1>
             <mat-list-item *ngFor="let com of dish.comments">
